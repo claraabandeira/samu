@@ -17,7 +17,10 @@ export class AppComponent implements OnInit {
     ufs : UF[];
     dados_da_samu : Dados[];
     minha_id = 14;
-    uf : UF
+    uf : UF;
+    valor : number;
+    anos: Dados[];
+    media: number;
     constructor(private ufService: UFService, private samuService: SamuService)
     { }
 
@@ -25,6 +28,8 @@ export class AppComponent implements OnInit {
         // this.ufs = this.ufService.getAll();
         this.uf = this.ufService.myUF(this.minha_id);
         this.dados_da_samu = this.samuService.getMunicipiosdoEstado(this.minha_id);
+        this.anos = this.samuService.getAno(this.minha_id);
+        this.media = this.samuService.calcularMedia(this.minha_id);
 
     }
-}
+  }
