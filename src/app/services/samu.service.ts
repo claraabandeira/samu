@@ -12,11 +12,13 @@ export class SamuService {
     return VALORES;
   }
   //municipios por estado
-  getMunicipiosdoEstado(id:number): Dados[]{
+  getMunicipiosdoEstado(uf: UF): Dados[]{
     let valoresDoEstado:Dados[] = [];
+    let i = 0;
     for (let entry of VALORES){
-      if(entry.uf_id == id){
-        valoresDoEstado.push(entry);
+      if(entry.uf_id == uf.id){
+        valoresDoEstado[i] = entry;
+        i++;
       }
       return valoresDoEstado;
     }
