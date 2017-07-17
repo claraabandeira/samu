@@ -2,16 +2,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
-
+import { dadosdaufComponent } from './dadosdauf.component';
+import { resuminhoComponent } from './resuminho.component';
+import { todosdadinhosComponent } from './todosdadinhos.component';
+import { RouterModule }   from '@angular/router';
+import {UFService} from './services/uf.service'
+import {SamuService} from './services/samu.service'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    dadosdaufComponent,
+    resuminhoComponent,
+    todosdadinhosComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule 
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'resuminho',
+        component: resuminhoComponent
+      },
+      {
+        path: 'todosdadinhos',
+        component: todosdadinhosComponent
+      },
+      {
+        path: 'dadosdauf',
+        component: dadosdaufComponent
+      }
+    ])
+
   ],
-  providers: [],
+  providers: [UFService, SamuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
