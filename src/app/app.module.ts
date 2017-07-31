@@ -8,6 +8,7 @@ import { todosdadinhosComponent } from './todosdadinhos.component';
 import { RouterModule }   from '@angular/router';
 import {UFService} from './services/uf.service'
 import {SamuService} from './services/samu.service'
+import {GetAllService} from "./services/pegartudinho.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import {SamuService} from './services/samu.service'
     ])
 
   ],
-  providers: [UFService, SamuService],
+  providers: [UFService, SamuService, GetAllService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

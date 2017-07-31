@@ -8,8 +8,8 @@
 </div>
   <div name = "master">
   <h3>Municipios Atendidos: {{soma}}</h3>
-  <h3><li *ngFor="let ano of anos">
-         {{ano.valor}} municipios atendidos em <span class="badge">{{ano.ano}}</span>
+  <h3><li *ngFor="let atend of dados">
+        uf: {{atend.uf.nome}} , {{atend.valor}} municipios atendidos em <span class="badge">{{atend.ano}}</span>
     </li></h3>
     <!-- <h4><li *ngFor="let uf of ufs">
            {{ufs.nome}}</span>

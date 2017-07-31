@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import {UF} from './types/uf';
-import {UFService} from './services/uf.service'
-
+import {UFService} from './services/uf.service';
+import { Dadox} from './types/tudinho';
 import {Dados} from './types/samu';
-import {SamuService} from './services/samu.service'
+import {SamuService} from './services/samu.service';
+import {GetAllService} from "./services/pegartudinho.service";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ export class todosdadinhosComponent implements OnInit {
     valor : number;
     anos: Dados[];
     media: number;
-    constructor(private ufService: UFService, private samuService: SamuService)
+    dados: Dadox[];
+    constructor(private ufService: UFService, private samuService: SamuService, private getAllService: GetAllService)
     { }
 
     ngOnInit(): void {
@@ -29,6 +31,6 @@ export class todosdadinhosComponent implements OnInit {
         this.dados_da_samu = this.samuService.getMunicipiosdoEstado(this.uf);
         this.anos = this.samuService.getAno(this.minha_id);
         this.media = this.samuService.calcularMedia(this.minha_id);
-
+        this.dados = this.getAllService.joinUfs();
     }
   }
